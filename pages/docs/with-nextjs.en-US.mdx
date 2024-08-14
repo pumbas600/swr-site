@@ -7,7 +7,7 @@ import { Callout } from 'nextra-theme-docs'
 ### Server Components [#rsc]
 
 <Callout type="default" emoji="✅">
-   In Next.js App Router, all components are React Server Components (RSC) by default. **You could only import the key serialization APIs from SWR in RSC.**
+   In Next.js App Router, all components are React Server Components (RSC) by default. **You can only import the key serialization APIs from SWR in RSC.**
 </Callout>
 
 ```tsx filename="app/page.tsx" copy
@@ -16,7 +16,7 @@ import { unstable_serialize as infinite_unstable_serialize } from 'swr/infinite'
 ```
 
 <Callout type="error">
-   You could not import any other APIs from SWR since they are not available in RSC.
+   You can not import any other APIs from SWR since they are not available in RSC.
 </Callout>
 
 ```tsx filename="app/page.tsx" highlight={1}
@@ -30,7 +30,7 @@ You can mark your components with `'use client'` directive or import SWR from cl
 ```tsx filename="app/page.tsx" highlight={1} copy
 'use client'
 import useSWR from 'swr'
-export default Page() {
+export default function Page() {
   const { data } = useSWR('/api/user', fetcher)
   return <h1>{data.name}</h1>
 }
